@@ -34,6 +34,22 @@ header {
   left: 0;
   width: 100%;
 }
+.cont {
+  display: flex;
+  justify-content: space-between;
+}
+.selectGenere {
+  text-align: right;
+  line-height: 25px;
+  margin-right: 80px;
+}
+.opt {
+  width: 200px;
+  height: 20px;
+}
+.h3 {
+  color: #fff;
+}
 
 header img {
   height: 50px;

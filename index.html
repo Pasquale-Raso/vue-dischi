@@ -11,21 +11,39 @@
   </head>
   <body>
     <div id="app">
-      <header>
-        <div class="container">
-          <img src="images/logo.png" />
-        </div>
-      </header>
-      <main class="container">
-        <section id="album-container">
-          <div v-for="(music, index) in musics" class="card">
-            <img :src="musics[index].poster" />
-            <h2 class="title">{{ musics[index].title }}</h2>
-            <address class="author">{{ musics[index].author }}</address>
-            <time class="year">{{ musics[index].year }}</time>
-          </div>
-        </section>
-      </main>
+      <div class="container">
+        <header>
+            <div class="cont">
+              <img src="images/logo.png" />
+              <div class="selectGenere">
+                  <h3 class="h3">Seleziona il tuo genere</h3>
+                  <select 
+                    class="opt" 
+                    v-model="genere_selezionato">
+                    <option 
+                      value="">Tutti i generi
+                    </option>
+                    <option 
+                      v-for="genere in generi" 
+                      :value="genere">
+                      {{ genere }}
+                    </option>
+                  </select>
+              </div>
+            </div>
+        </header>
+        <main class="container">
+          <section id="album-container">
+            <div v-for="(music, index) in musics" 
+                 class="card"
+                 v-if="genere_selezionato == '' || genere_selezionato == music.genre">
+              <img :src="musics[index].poster" />
+              <h2 class="title">{{ musics[index].title }}</h2>
+              <address class="author">{{ musics[index].author }}</address>
+              <time class="year">{{ musics[index].year }}</time>
+            </div>
+          </section>
+        </main>
     </div>
     <script src="js/script.js"></script>
   </body>
