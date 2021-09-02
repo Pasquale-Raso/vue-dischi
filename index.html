@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue Document</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   <body>
@@ -17,11 +18,11 @@
       </header>
       <main class="container">
         <section id="album-container">
-          <div class="card">
-            <img src="images/demo.jpg" alt="New Jersey" />
-            <h2 class="title">NEW JERSEY</h2>
-            <address class="author">Bon Jovi</address>
-            <time datetime="1988" class="year">1988</time>
+          <div v-for="(music, index) in musics" class="card">
+            <img src="{{ musics[index].poster }}" />
+            <h2 class="title">{{ musics[index].title }}</h2>
+            <address class="author">{{ musics[index].author }}</address>
+            <time class="year">{{ musics[index].year }}</time>
           </div>
         </section>
       </main>
