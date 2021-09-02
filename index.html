@@ -19,7 +19,7 @@
       <main class="container">
         <section id="album-container">
           <div v-for="(music, index) in musics" class="card">
-            <img src="{{ musics[index].poster }}" />
+            <img :src="musics[index].poster" />
             <h2 class="title">{{ musics[index].title }}</h2>
             <address class="author">{{ musics[index].author }}</address>
             <time class="year">{{ musics[index].year }}</time>
